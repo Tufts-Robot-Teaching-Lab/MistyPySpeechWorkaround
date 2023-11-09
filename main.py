@@ -1,4 +1,3 @@
-from email.mime import audio
 import time
 from mistyPy.Robot import Robot
 # Using this GitRepo: https://github.com/MistyCommunity/Python-SDK -- in BETA so I have to supplement some behavior myself

@@ -1,8 +1,6 @@
 import time
 from mistyPy.Robot import Robot
 # Using this GitRepo: https://github.com/MistyCommunity/Python-SDK -- in BETA so I have to supplement some behavior myself
-
-import wave
 import base64
 from gtts import gTTS # Used for doing text to speech 
 DEBUG_JSON_REQUESTS = False

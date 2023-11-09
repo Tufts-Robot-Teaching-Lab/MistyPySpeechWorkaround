@@ -17,7 +17,7 @@ def JSON_response_to_dictionary(response):
 
 
 if __name__ == "__main__":
-    ip_address = "10.5.6.13"
+    ip_address = "<your ip>"
     # Create an instance of a robot
     misty = Robot(ip_address)
 

@@ -17,7 +17,7 @@ def JSON_response_to_dictionary(response):
 if __name__ == "__main__":
     ip_address = "<your ip>"
     # Create an instance of a robot
-    misty = Robot(ip_address)
+    misty = Robot(ip_address) # Make sure that you're on the same network as the Misty is (which should be Tufts EECS)
 
     ########################################
     # Debug to make sure connection happened

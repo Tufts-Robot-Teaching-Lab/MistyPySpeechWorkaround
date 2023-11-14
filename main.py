@@ -1,8 +1,9 @@
 import time
+# Make sure that you pip install both MistyPy and Misty-SDK
 from mistyPy.Robot import Robot
 # Using this GitRepo: https://github.com/MistyCommunity/Python-SDK -- in BETA so I have to supplement some behavior myself
 import base64
-from gtts import gTTS # Used for doing text to speech 
+from gtts import gTTS # Used for doing text to speech, you may need to pip install gtts
 DEBUG_JSON_REQUESTS = False
 
 def JSON_response_to_dictionary(response):

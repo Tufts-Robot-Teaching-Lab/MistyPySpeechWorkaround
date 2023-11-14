@@ -1,9 +1,9 @@
 import time
-# Make sure that you pip install both MistyPy and Misty-SDK
 from mistyPy.Robot import Robot
 # Using this GitRepo: https://github.com/MistyCommunity/Python-SDK -- in BETA so I have to supplement some behavior myself
+
 import base64
-from gtts import gTTS # Used for doing text to speech, you may need to pip install gtts
+from gtts import gTTS # Used for doing text to speech 
 DEBUG_JSON_REQUESTS = False
 
 def JSON_response_to_dictionary(response):
@@ -15,9 +15,9 @@ def JSON_response_to_dictionary(response):
 
 
 if __name__ == "__main__":
-    ip_address = "<your ip>"
+    ip_address = "10.5.6.13"
     # Create an instance of a robot
-    misty = Robot(ip_address) # Make sure that you're on the same network as the Misty is (which should be Tufts EECS)
+    misty = Robot(ip_address)
 
     ########################################
     # Debug to make sure connection happened
@@ -59,15 +59,17 @@ if __name__ == "__main__":
     #misty.PlayAudio("s_Amazement.wav", volume=100) # This works, so it's not a speaker problem!
     #time.sleep(2)
 
-    text = "Hello World, this is my Misty speech workaround!"
+    text = "Hello World, this is my Misty speech workaround! Testing out encoding and decoding data"
     language = 'en'
     speech = gTTS(text=text, lang=language, slow=False)
     file_name = "audio.mp3"
     speech.save(file_name) # GTTS says you can save as .wav but it lies, it's still a .mp3 object at heart, just a heads up
     
+    ENCODING = 'utf-8'
     encode_string = base64.b64encode(open(file_name, "rb").read())
+    base64_string = encode_string.decode(ENCODING)
 
-    save_audio_response = misty.SaveAudio(file_name, data=encode_string, overwriteExisting=True)
+    save_audio_response = misty.SaveAudio(file_name, data=base64_string, overwriteExisting=True, immediatelyApply=True)
     save_audio = JSON_response_to_dictionary(save_audio_response)
     print("Saving Audio Response: " + str(save_audio))
-    misty.PlayAudio(file_name, volume=100)
+    #misty.PlayAudio(file_name, volume=100)
